@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="3dp"
+
     >
 
 
@@ -53,16 +54,19 @@
 
             <TextView
                 android:layout_width="wrap_content"
+                android:id="@+id/item_name"
                 android:layout_height="wrap_content"
                 android:text="Валюта"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/item_buy"
                 android:text="Продажа"
                 android:layout_marginTop="8dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/item_sale"
                 android:text="Покупка"
                 android:layout_marginTop="8dp"/>
 
