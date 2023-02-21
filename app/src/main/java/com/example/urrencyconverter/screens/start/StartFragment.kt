@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.urrencyconverter.R
 import com.example.urrencyconverter.ViewPagerAdaptor
@@ -26,11 +27,23 @@ class StartFragment : Fragment() {
             savedInstanceState: Bundle?
         ): View? {
 
-           // val v = inflater.inflate()
+            val viewModel =  ViewModelProvider(this).get(StartViewModel::class.java)
+
+            val v = inflater.inflate(R.layout.fragment_start, container, false)
+            recyclerView = v.rv_start
+            adapter = StartAdapter()
+            recyclerView.adapter = adapter
+
+            viewModel.getMoney()
+            viewModel.valytList.observe(viewLifecycleOwner,{ list->
+                list.body()?.let { adapter.setList(it) }
+
+
+            })
 
 
 
-            return inflater.inflate(R.layout.fragment_start, container, false)
+            return v
         }
 
     }

@@ -6,12 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.urrencyconverter.R
-import com.example.urrencyconverter.model.nal.ValutaItem
+import com.example.urrencyconverter.model.nal.Valuta
 import kotlinx.android.synthetic.main.item_money_layout.view.*
 
 class StartAdapter:RecyclerView.Adapter<StartAdapter.StartViewHolder>() {
 
-     var listStart = emptyList<ValutaItem>()
+     var listStart = emptyList<Valuta>()
 
     class StartViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
@@ -33,7 +33,7 @@ class StartAdapter:RecyclerView.Adapter<StartAdapter.StartViewHolder>() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setList(list: List<ValutaItem>)
+    fun setList(list: List<Valuta>)
     {
         listStart = list
         notifyDataSetChanged()
