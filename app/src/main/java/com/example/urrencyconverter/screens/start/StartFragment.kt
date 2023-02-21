@@ -17,34 +17,30 @@ import kotlinx.android.synthetic.main.fragment_start.view.*
 class StartFragment : Fragment() {
 
 
-        lateinit var recyclerView: RecyclerView
-        lateinit var adapter: StartAdapter
+    lateinit var recyclerView: RecyclerView
+    lateinit var adapter: StartAdapter
+
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+
+        val viewModel = ViewModelProvider(this).get(StartViewModel::class.java)
+
+        val v = inflater.inflate(R.layout.fragment_start, container, false)
+        recyclerView = v.rv_start
+        adapter = StartAdapter()
+        recyclerView.adapter = adapter
+
+        viewModel.getMoney()
+        viewModel.valytList.observe(viewLifecycleOwner, { list ->
+            list.body()?.let { adapter.setList(it) }
+        })
 
 
 
-        override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
-        ): View? {
-
-            val viewModel =  ViewModelProvider(this).get(StartViewModel::class.java)
-
-            val v = inflater.inflate(R.layout.fragment_start, container, false)
-            recyclerView = v.rv_start
-            adapter = StartAdapter()
-            recyclerView.adapter = adapter
-
-            viewModel.getMoney()
-            viewModel.valytList.observe(viewLifecycleOwner,{ list->
-                list.body()?.let { adapter.setList(it) }
-
-
-
-            })
-
-
-
-            return v
-        }
-
+        return v
     }
+
+}
