@@ -1,6 +1,6 @@
 package com.example.urrencyconverter.model.nal
 
-data class Valuta(
+data class ValutaItem(
     val id: String,
     val NumCode: String,
     val CharCode: String,
