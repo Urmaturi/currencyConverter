@@ -11,7 +11,4 @@ interface ApiService {
 
     @GET("daily_json.js")
     suspend fun getMoneys() : Response<ValutaL>
-
-
-
 }

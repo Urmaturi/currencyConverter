@@ -8,4 +8,6 @@ data class Valuta(
     val Name: String,
     val Value: String,
     val Previous: String
+
+
 )

@@ -2,5 +2,5 @@ package com.example.urrencyconverter.model.nal
 
 
 
-class ValutaL : ArrayList<Valuta>()
+class ValutaL : ArrayList<Valuta>(  )
 

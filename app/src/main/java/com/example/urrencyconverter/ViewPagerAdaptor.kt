@@ -17,5 +17,6 @@ class ViewPagerAdaptor(fragmentActivity: FragmentActivity   ): FragmentStateAdap
              0 -> StartFragment()
              else -> SecondFragment()
          }
+
     }
 }

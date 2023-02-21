@@ -26,10 +26,12 @@ class StartAdapter:RecyclerView.Adapter<StartAdapter.StartViewHolder>() {
         holder.itemView.item_name.text = listStart[position].Name
         holder.itemView.item_buy.text = listStart[position].Value
         holder.itemView.item_sale.text = listStart[position].Previous
+
     }
 
     override fun getItemCount(): Int {
        return listStart.size
+
     }
 
     @SuppressLint("NotifyDataSetChanged")

@@ -29,6 +29,7 @@ class RootFragment : Fragment() {
          val view = inflater.inflate(R.layout.fragment_root,container,false)
          view.viewPager.adapter = ViewPagerAdaptor(cntxt as FragmentActivity)
          return view
+
      }
 
 

@@ -39,6 +39,7 @@ class StartFragment : Fragment() {
                 list.body()?.let { adapter.setList(it) }
 
 
+
             })
 
 
