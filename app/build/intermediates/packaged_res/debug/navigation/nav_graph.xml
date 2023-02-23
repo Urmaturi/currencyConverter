@@ -17,5 +17,14 @@
     <fragment
         android:id="@+id/secondFragment"
         android:name="com.example.urrencyconverter.screens.start.StartFragment.SecondFragment"
-        android:label="SecondFragment" />
+        android:label="SecondFragment" >
+        <action
+            android:id="@+id/action_secondFragment_to_fragmentChanegeCash"
+            app:destination="@id/fragmentChanegeCash" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentChanegeCash"
+        android:name="com.example.urrencyconverter.FragmentChanegeCash"
+        android:label="fragment_chanege_cash"
+        tools:layout="@layout/fragment_chanege_cash" />
 </navigation>
