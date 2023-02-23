@@ -57,6 +57,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\Admin\\AndroidStudioProjects\\currencyConverter\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "1,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "17,132",
+                        "endColumns": "54,69",
+                        "endOffsets": "67,197"
+                    },
+                    "to": {
+                        "startLines": "1818,1837",
+                        "startColumns": "4,4",
+                        "startOffsets": "116446,118745",
+                        "endColumns": "54,69",
+                        "endOffsets": "116496,118810"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-3\\0f3eca9512f0eb9502afcb0282c13bf3\\transformed\\window-1.0.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,7,8,9,10,11,19,23,34,51",
@@ -222,23 +239,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Admin\\AndroidStudioProjects\\urrencyConverter\\app\\src\\main\\res\\values\\strings.xml",
-                    "from": {
-                        "startLines": "1,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "16,129",
-                        "endColumns": "54,69",
-                        "endOffsets": "66,194"
-                    },
-                    "to": {
-                        "startLines": "1818,1837",
-                        "startColumns": "4,4",
-                        "startOffsets": "116446,118745",
-                        "endColumns": "54,69",
-                        "endOffsets": "116496,118810"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-3\\8244b4f3e50c1f99819625070d7df945\\transformed\\navigation-runtime-2.5.3\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3,10,13",
@@ -258,22 +258,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Admin\\AndroidStudioProjects\\urrencyConverter\\app\\src\\main\\res\\values\\themes.xml",
+                    "source": "C:\\Users\\Admin\\AndroidStudioProjects\\currencyConverter\\app\\src\\main\\res\\values\\colors.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "102",
-                        "endLines": "14",
-                        "endColumns": "12",
-                        "endOffsets": "838"
+                        "startLines": "11,7,9,8,10,2,3,4,5,6,13,12",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "464,293,377,336,417,57,105,153,201,247,547,505",
+                        "endColumns": "39,41,38,39,45,46,46,46,44,44,39,40",
+                        "endOffsets": "499,330,411,371,458,99,147,195,241,287,582,541"
                     },
                     "to": {
-                        "startLines": "6232",
-                        "startColumns": "4",
-                        "startOffsets": "431345",
-                        "endLines": "6244",
-                        "endColumns": "12",
-                        "endOffsets": "431946"
+                        "startLines": "623,628,629,685,688,883,884,885,896,897,900,901",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "31595,31954,31996,35894,36069,50332,50379,50426,51170,51215,51381,51421",
+                        "endColumns": "39,41,38,39,45,46,46,46,44,44,39,40",
+                        "endOffsets": "31630,31991,32030,35929,36110,50374,50421,50468,51210,51255,51416,51457"
                     }
                 },
                 {
@@ -296,20 +294,22 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Admin\\AndroidStudioProjects\\urrencyConverter\\app\\src\\main\\res\\values\\colors.xml",
+                    "source": "C:\\Users\\Admin\\AndroidStudioProjects\\currencyConverter\\app\\src\\main\\res\\values\\themes.xml",
                     "from": {
-                        "startLines": "11,7,9,8,10,2,3,4,5,6,13,12",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "453,286,368,328,407,55,102,149,196,241,534,493",
-                        "endColumns": "39,41,38,39,45,46,46,46,44,44,39,40",
-                        "endOffsets": "488,323,402,363,448,97,144,191,236,281,569,529"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "102",
+                        "endLines": "14",
+                        "endColumns": "12",
+                        "endOffsets": "838"
                     },
                     "to": {
-                        "startLines": "623,628,629,685,688,883,884,885,896,897,900,901",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "31595,31954,31996,35894,36069,50332,50379,50426,51170,51215,51381,51421",
-                        "endColumns": "39,41,38,39,45,46,46,46,44,44,39,40",
-                        "endOffsets": "31630,31991,32030,35929,36110,50374,50421,50468,51210,51255,51416,51457"
+                        "startLines": "6232",
+                        "startColumns": "4",
+                        "startOffsets": "431345",
+                        "endLines": "6244",
+                        "endColumns": "12",
+                        "endOffsets": "431946"
                     }
                 },
                 {
