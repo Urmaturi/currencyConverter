@@ -2923,7 +2923,8 @@ id action_menu_presenter
 id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
-id action_secondFragment_to_fragmentChanegeCash
+id action_rootFragment_to_thirdFragment
+id action_secondFragment_to_thirdFragment
 id action_text
 id actions
 id activity_chooser_view_content
@@ -3054,7 +3055,6 @@ id fixed
 id flip
 id floating
 id forever
-id fragmentChanegeCash
 id fragment_container_view_tag
 id frost
 id fullscreen_header
@@ -3294,7 +3294,6 @@ id src_in
 id src_over
 id standard
 id start
-id startFragment2
 id startHorizontal
 id startToEnd
 id startVertical
@@ -3336,6 +3335,7 @@ id textinput_helper_text
 id textinput_placeholder
 id textinput_prefix_text
 id textinput_suffix_text
+id thirdFragment
 id time
 id title
 id titleDividerNoCustom
@@ -3577,6 +3577,7 @@ mipmap ic_launcher
 mipmap ic_launcher_round
 navigation nav_graph
 plurals mtrl_badge_content_description
+string _123_0
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -3730,6 +3731,7 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string rub
 string search_menu_title
 string searchbar_scrolling_view_behavior
 string searchview_clear_text_content_description

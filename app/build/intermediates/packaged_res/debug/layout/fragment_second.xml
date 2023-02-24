@@ -49,7 +49,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
 
 
             <LinearLayout
@@ -64,7 +65,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:text="123.0"
+                    android:text="@string/_123_0"
                     android:textSize="25sp"
                     android:textStyle="bold" />
 
@@ -73,7 +74,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
                     android:gravity="center"
-                    android:text="RUB"
+                    android:text="@string/rub"
                     android:textSize="25sp"
                     android:textStyle="bold"
                     tools:ignore="NestedWeights" />
@@ -96,7 +97,8 @@
                 android:layout_height="50dp"
                 android:padding="5dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/baseline_compare_arrows_24" />
+                android:src="@drawable/baseline_compare_arrows_24"
+               />
 
 
             <LinearLayout
@@ -110,7 +112,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:text="123.0"
+                    android:text="@string/_123_0"
                     android:textSize="25sp"
                     android:textStyle="bold" />
 
@@ -119,7 +121,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
                     android:gravity="center"
-                    android:text="RUB"
+                    android:text="@string/rub"
                     android:textSize="25sp"
                     android:textStyle="bold"
                     tools:ignore="NestedWeights" />
@@ -136,7 +138,10 @@
 
             </LinearLayout>
         </LinearLayout>
+
+
     </LinearLayout>
+
 
 
 

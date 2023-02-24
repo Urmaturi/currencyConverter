@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.urrencyconverter.R
 import com.example.urrencyconverter.ViewPagerAdaptor
+import kotlinx.android.synthetic.main.fragment_root.view.*
 import kotlinx.android.synthetic.main.fragment_start.view.*
 
 
@@ -19,6 +20,7 @@ class StartFragment : Fragment() {
 
     lateinit var recyclerView: RecyclerView
     lateinit var adapter: StartAdapter
+
 
 
     override fun onCreateView(
@@ -38,6 +40,9 @@ class StartFragment : Fragment() {
             list.body()?.let { adapter.setList(it) }
         })
 
+        //val view = inflater.inflate(R.layout.fragment_start,container,false)
+       // v.viewPager.adapter = ViewPagerAdaptor(cntxt as FragmentActivity)
+        //return view
 
 
         return v

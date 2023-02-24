@@ -8,23 +8,23 @@
         android:id="@+id/rootFragment"
         android:name="com.example.urrencyconverter.screens.root.RootFragment"
         android:label="fragment_root"
-        tools:layout="@layout/fragment_root" />
-    <fragment
-        android:id="@+id/startFragment2"
-        android:name="com.example.urrencyconverter.screens.start.StartFragment"
-        android:label="fragment_start"
-        tools:layout="@layout/fragment_start" />
-    <fragment
-        android:id="@+id/secondFragment"
-        android:name="com.example.urrencyconverter.screens.start.StartFragment.SecondFragment"
-        android:label="SecondFragment" >
+        tools:layout="@layout/fragment_root" >
         <action
-            android:id="@+id/action_secondFragment_to_fragmentChanegeCash"
-            app:destination="@id/fragmentChanegeCash" />
+            android:id="@+id/action_rootFragment_to_thirdFragment"
+            app:destination="@id/thirdFragment" />
     </fragment>
     <fragment
-        android:id="@+id/fragmentChanegeCash"
-        android:name="com.example.urrencyconverter.FragmentChanegeCash"
-        android:label="fragment_chanege_cash"
-        tools:layout="@layout/fragment_chanege_cash" />
+        android:id="@+id/secondFragment"
+        android:name="com.example.urrencyconverter.screens.second.SecondFragment"
+        android:label="fragment_second"
+        tools:layout="@layout/fragment_second" >
+        <action
+            android:id="@+id/action_secondFragment_to_thirdFragment"
+            app:destination="@id/thirdFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.example.urrencyconverter.screens.third.ThirdFragment"
+        android:label="fragment_third"
+        tools:layout="@layout/fragment_third" />
 </navigation>

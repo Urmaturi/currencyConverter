@@ -10,15 +10,22 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.urrencyconverter.R
+import com.example.urrencyconverter.databinding.FragmentSecondBinding
+import com.example.urrencyconverter.screens.MAIN
 import kotlinx.android.synthetic.main.fragment_second.view.*
 
 
 class SecondFragment : Fragment() {
 
+
     private lateinit var viewModels: ViewModel
     lateinit var dialog: Dialog
+    lateinit var binding: FragmentSecondBinding
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,45 +33,36 @@ class SecondFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
+       binding = FragmentSecondBinding.inflate(layoutInflater,container,false)
 
-        val view = inflater.inflate(R.layout.fragment_second, container, false)
+        //val view = inflater.inflate(R.layout.fragment_second, container, false)
         dialog = Dialog(requireContext())
 
 
-        val textView: TextView = view.findViewById(R.id.nextChange2)
-        textView.setOnClickListener {
-            val toast: Toast = Toast.makeText(context, "Hello Android!", Toast.LENGTH_LONG)
-            toast.show()
+        return binding.root
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.root.nextChange.setOnClickListener {
+          //  MAIN.navController.navigate(R.id.action_secondFragment_to_thirdFragment)
             Navigation.findNavController(view)
-                .navigate(R.id.action_secondFragment_to_fragmentChanegeCash)
-        }
-
-
-        view.nextChange.setOnClickListener {
-            Navigation.findNavController(view)
-                .navigate(R.id.action_secondFragment_to_fragmentChanegeCash)
+                .navigate(R.id.action_rootFragment_to_thirdFragment)
 
         }
-
-        view.nextChange2.setOnClickListener {
-            Navigation.findNavController(view)
-                .navigate(R.id.action_secondFragment_to_fragmentChanegeCash)
+        binding.root.nextChange2.setOnClickListener {
+            MAIN.navController.navigate(R.id.action_rootFragment_to_thirdFragment)
         }
-
-        view.txtNumCur1.setOnClickListener {
-            val toast: Toast = Toast.makeText(context, "Hello Android!", Toast.LENGTH_LONG)
-            toast.show()
+        binding.root.txtNumCur1.setOnClickListener {
             dialogCurrentChange()
-
         }
-       view.txtNumCur2.setOnClickListener {
+        binding.root.txtNumCur2.setOnClickListener {
             dialogCurrentChange2()
         }
 
-
-        return inflater.inflate(R.layout.fragment_second, container, false)
     }
+
+
     private fun dialogCurrentChange2() {
 
         dialog.setCancelable(false)
@@ -83,7 +81,6 @@ class SecondFragment : Fragment() {
             dialog.dismiss()
         }
         dialog.show()
-
     }
     fun dialogCurrentChange() {
 
@@ -103,10 +100,7 @@ class SecondFragment : Fragment() {
             dialog.dismiss()
         }
         dialog.show()
-
-
     }
-
     fun dilig(view: View) {}
 
 

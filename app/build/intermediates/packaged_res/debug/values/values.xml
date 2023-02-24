@@ -12,10 +12,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFF</color>
     <color name="yellow">#FF9800</color>
+    <string name="_123_0">123.0</string>
     <string name="app_name">СurrencyConverter</string>
     <string name="app_title">Конвертер валют</string>
     <string name="change_currency">Изменить валюту</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="rub">RUB</string>
     <style name="Theme.СurrencyConverter" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         
         <item name="colorPrimary">@color/purple_500</item>

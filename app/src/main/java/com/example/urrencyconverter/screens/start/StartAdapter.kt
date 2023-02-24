@@ -1,6 +1,7 @@
 package com.example.urrencyconverter.screens.start
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,9 @@ class StartAdapter : RecyclerView.Adapter<StartAdapter.StartViewHolder>() {
 
     var listStart = emptyList<AllJsonData>()
     var tempList = ArrayList<ValutaItem>()
+
+
+
 
     class StartViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     }
