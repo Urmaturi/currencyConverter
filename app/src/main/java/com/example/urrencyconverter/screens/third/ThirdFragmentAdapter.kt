@@ -8,11 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.urrencyconverter.R
 import com.example.urrencyconverter.model.nal.AllJsonData
 import com.example.urrencyconverter.model.nal.ValutaItem
+import com.example.urrencyconverter.screens.IClickListnearCurrency
 import kotlinx.android.synthetic.main.fragment_item_currency.view.*
 import kotlinx.android.synthetic.main.item_money_layout.view.*
 
 
-class ThirdFragmentAdapter: RecyclerView.Adapter<ThirdFragmentAdapter.TherdFrgViewHolder>() {
+class ThirdFragmentAdapter(private val mIClickListnearHomeStory: IClickListnearCurrency)
+    : RecyclerView.Adapter<ThirdFragmentAdapter.TherdFrgViewHolder>() {
 
     var listStart = emptyList<AllJsonData>()
     var tempList = ArrayList<ValutaItem>()
@@ -33,6 +35,12 @@ class ThirdFragmentAdapter: RecyclerView.Adapter<ThirdFragmentAdapter.TherdFrgVi
     override fun onBindViewHolder(holder: TherdFrgViewHolder, position: Int) {
         holder.itemView.itemValutName.text = tempList[position].Name
         holder.itemView.itemValutCurrency.text = tempList[position].Previews
+        holder.itemView.rowLin.setOnClickListener {
+            mIClickListnearHomeStory.clickListener(tempList[position].Name,tempList[position].Previews.toDouble())
+                }
+
+
+
     }
     @SuppressLint("NotifyDataSetChanged")
     fun setList(list: AllJsonData) {
