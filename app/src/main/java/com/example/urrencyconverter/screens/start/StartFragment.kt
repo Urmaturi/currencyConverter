@@ -16,12 +16,8 @@ import kotlinx.android.synthetic.main.fragment_start.view.*
 
 
 class StartFragment : Fragment() {
-
-
     lateinit var recyclerView: RecyclerView
     lateinit var adapter: StartAdapter
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

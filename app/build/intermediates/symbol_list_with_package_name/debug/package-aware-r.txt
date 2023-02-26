@@ -3086,6 +3086,8 @@ id info
 id invisible
 id inward
 id italic
+id itemValutCurrency
+id itemValutName
 id item_buy
 id item_name
 id item_sale
@@ -3222,9 +3224,10 @@ id right_icon
 id right_side
 id rootFragment
 id rounded
+id rowLin
 id row_index_key
 id rtl
-id rv_currency
+id rv_simple
 id rv_start
 id save_non_transition_alpha
 id save_overlay_view
@@ -3507,6 +3510,7 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_chanege_cash
+layout fragment_item_currency
 layout fragment_root
 layout fragment_second
 layout fragment_start

@@ -24,17 +24,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Валюта"
+                android:textColor="@color/black"
+                android:textSize="23sp"
+
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Продажа"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="8dp"
+                android:textColor="@color/black"
+                android:textSize="23sp"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Покупка"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="8dp"
+                android:textColor="@color/black"
+                android:textSize="23sp"
+                />
 
 
 
@@ -56,19 +65,29 @@
                 android:layout_width="wrap_content"
                 android:id="@+id/item_name"
                 android:layout_height="wrap_content"
+
+                android:textColor="@color/black"
+                android:textSize="23sp"
                 android:text="Валюта"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/item_buy"
                 android:text="Продажа"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="8dp"
+                android:textColor="@color/black"
+                android:textSize="23sp"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/item_sale"
                 android:text="Покупка"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="8dp"
+                android:textColor="@color/black"
+                android:textSize="23sp"
+                />
 
 
 

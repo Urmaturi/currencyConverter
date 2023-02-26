@@ -15,10 +15,6 @@ class StartAdapter : RecyclerView.Adapter<StartAdapter.StartViewHolder>() {
 
     var listStart = emptyList<AllJsonData>()
     var tempList = ArrayList<ValutaItem>()
-
-
-
-
     class StartViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     }
 
@@ -27,24 +23,17 @@ class StartAdapter : RecyclerView.Adapter<StartAdapter.StartViewHolder>() {
             LayoutInflater.from(parent.context).inflate(R.layout.item_money_layout, parent, false)
         return StartViewHolder(view)
     }
-
     override fun onBindViewHolder(holder: StartViewHolder, position: Int) {
         holder.itemView.item_name.text = tempList[position].Name
         holder.itemView.item_buy.text = tempList[position].Value
         holder.itemView.item_sale.text = tempList[position].Previews
-
     }
-
     override fun getItemCount(): Int {
         return tempList.size
-
     }
-
     @SuppressLint("NotifyDataSetChanged")
     fun setList(list: AllJsonData) {
         listStart = listOf(list)
-
-
         tempList.add(
             ValutaItem(
                 listStart[0].Valute.AED.Name,
@@ -171,8 +160,6 @@ class StartAdapter : RecyclerView.Adapter<StartAdapter.StartViewHolder>() {
                 listStart[0].Valute.GBP.Value.toString()
             )
         )
-
-
         notifyDataSetChanged()
     }
 

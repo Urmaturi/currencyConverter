@@ -9,6 +9,7 @@ import kotlinx.coroutines.launch
 import retrofit2.Response
 
 class StartViewModel: ViewModel() {
+
     var repo = Repository()
     val valytList : MutableLiveData<Response<AllJsonData>> =MutableLiveData()
 

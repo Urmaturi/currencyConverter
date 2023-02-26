@@ -21,6 +21,8 @@ id action_secondFragment_to_thirdFragment
 id dialog_save
 id edt_currency
 id imgCancel
+id itemValutCurrency
+id itemValutName
 id item_buy
 id item_name
 id item_sale
@@ -30,7 +32,8 @@ id nextCancel
 id nextChange
 id nextChange2
 id rootFragment
-id rv_currency
+id rowLin
+id rv_simple
 id rv_start
 id secondFragment
 id tab_layout
@@ -44,6 +47,7 @@ id txt_title
 id viewPager
 layout activity_main
 layout fragment_chanege_cash
+layout fragment_item_currency
 layout fragment_root
 layout fragment_second
 layout fragment_start
