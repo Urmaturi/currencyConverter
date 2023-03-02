@@ -5,11 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.urrencyconverter.R
 import com.example.urrencyconverter.databinding.FragmentThirdBinding
-import com.example.urrencyconverter.screens.start.StartAdapter
+import com.example.urrencyconverter.model.nal.ValutaItem
 
 class ThirdFragment : Fragment() {
     lateinit var binding: FragmentThirdBinding
@@ -35,6 +36,8 @@ class ThirdFragment : Fragment() {
 
         return binding.root
     }
+
+
 
 
 }

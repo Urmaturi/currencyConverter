@@ -15,10 +15,11 @@ import androidx.navigation.Navigation
 import com.example.urrencyconverter.R
 import com.example.urrencyconverter.databinding.FragmentSecondBinding
 import com.example.urrencyconverter.screens.MAIN
+import com.example.urrencyconverter.screens.third.ListnearCurrency
 import kotlinx.android.synthetic.main.fragment_second.view.*
 
 
-class SecondFragment : Fragment() {
+class SecondFragment : Fragment(),ListnearCurrency {
 
 
     private lateinit var viewModels: ViewModel
@@ -102,6 +103,9 @@ class SecondFragment : Fragment() {
         dialog.show()
     }
     fun dilig(view: View) {}
+    override fun onClick(name: String, currency: String) {
+        TODO("Not yet implemented")
+    }
 
 
 }
