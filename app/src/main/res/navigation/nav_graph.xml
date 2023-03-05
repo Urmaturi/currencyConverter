@@ -21,10 +21,17 @@
         <action
             android:id="@+id/action_secondFragment_to_thirdFragment"
             app:destination="@id/thirdFragment" />
+        <action
+            android:id="@+id/action_secondFragment_to_rootFragment"
+            app:destination="@id/rootFragment" />
     </fragment>
     <fragment
         android:id="@+id/thirdFragment"
         android:name="com.example.urrencyconverter.screens.third.ThirdFragment"
         android:label="fragment_third"
-        tools:layout="@layout/fragment_third" />
+        tools:layout="@layout/fragment_third" >
+        <action
+            android:id="@+id/action_thirdFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+    </fragment>
 </navigation>

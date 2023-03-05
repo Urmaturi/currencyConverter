@@ -60,7 +60,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtNumCur1"
+                    android:id="@+id/txtNumCursValut1"
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/txtNameCur1"
+                    android:id="@+id/txtNameValut"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
                     android:gravity="center"

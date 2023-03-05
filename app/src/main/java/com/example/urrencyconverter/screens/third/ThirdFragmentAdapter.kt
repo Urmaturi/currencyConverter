@@ -35,7 +35,7 @@ class ThirdFragmentAdapter( val listener: ListnearCurrency)  : RecyclerView.Adap
         holder.itemView.itemValutName.text = tempList[position].Name
         holder.itemView.itemValutCurrency.text = tempList[position].Previews
         holder.itemView.rowLin.setOnClickListener {
-            listener.onClick(tempList[position].Name,tempList[position].Previews)
+            listener.onClick(tempList[position].Name,tempList[position].Value)
                 }
 
 

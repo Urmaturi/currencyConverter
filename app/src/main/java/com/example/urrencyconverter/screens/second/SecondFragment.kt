@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
-import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.urrencyconverter.R
 import com.example.urrencyconverter.databinding.FragmentSecondBinding
@@ -39,6 +38,8 @@ class SecondFragment : Fragment(),ListnearCurrency {
         //val view = inflater.inflate(R.layout.fragment_second, container, false)
         dialog = Dialog(requireContext())
 
+        val text = arguments?.getString("currency")
+        binding.root.txtNameValut.text = text
 
         return binding.root
     }
@@ -54,12 +55,17 @@ class SecondFragment : Fragment(),ListnearCurrency {
         binding.root.nextChange2.setOnClickListener {
             MAIN.navController.navigate(R.id.action_rootFragment_to_thirdFragment)
         }
-        binding.root.txtNumCur1.setOnClickListener {
+        binding.root.txtNumCursValut1.setOnClickListener {
             dialogCurrentChange()
         }
         binding.root.txtNumCur2.setOnClickListener {
             dialogCurrentChange2()
         }
+
+
+        val text = arguments?.getString("name")
+        binding.root.txtNameValut.text = text
+
 
     }
 
@@ -93,7 +99,7 @@ class SecondFragment : Fragment(),ListnearCurrency {
         val exit = dialog.findViewById<ImageView>(R.id.imgCancel)
         val textCurrency = dialog.findViewById<EditText>(R.id.edt_currency)
         buttonYES.setOnClickListener {
-            view?.txtNumCur1?.text = textCurrency.text
+            view?.txtNumCursValut1?.text = textCurrency.text
             //  converterInfo(textCurrency.text.toString())
             dialog.dismiss()
         }
