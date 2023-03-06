@@ -1,7 +1,7 @@
 package com.example.urrencyconverter.model.nal
 
 data class ValutaItem(
-    var Name: String,
-    var Previews: String,
+    var name: String,
+    var previews: String,
     var Value: String,
 )

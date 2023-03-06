@@ -1,7 +1,6 @@
 package com.example.urrencyconverter.screens.start
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,9 +23,9 @@ class StartAdapter : RecyclerView.Adapter<StartAdapter.StartViewHolder>() {
         return StartViewHolder(view)
     }
     override fun onBindViewHolder(holder: StartViewHolder, position: Int) {
-        holder.itemView.item_name.text = tempList[position].Name
+        holder.itemView.item_name.text = tempList[position].name
         holder.itemView.item_buy.text = tempList[position].Value
-        holder.itemView.item_sale.text = tempList[position].Previews
+        holder.itemView.item_sale.text = tempList[position].previews
     }
     override fun getItemCount(): Int {
         return tempList.size

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import com.example.urrencyconverter.databinding.ActivityMainBinding
 import com.example.urrencyconverter.screens.MAIN
 
@@ -15,9 +16,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+
         navController = Navigation.findNavController(this,R.id.nav_host)
         MAIN = this
+        //MAIN.navController.navigate(R.id.action_rootFragment_to_thirdFragment)
 
 
     }
+
+
+
+
 }

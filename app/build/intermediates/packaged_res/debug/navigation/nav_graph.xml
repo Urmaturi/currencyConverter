@@ -3,16 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/rootFragment">
-    <fragment
-        android:id="@+id/rootFragment"
-        android:name="com.example.urrencyconverter.screens.root.RootFragment"
-        android:label="fragment_root"
-        tools:layout="@layout/fragment_root" >
-        <action
-            android:id="@+id/action_rootFragment_to_thirdFragment"
-            app:destination="@id/thirdFragment" />
-    </fragment>
+    app:startDestination="@id/startFragment">
     <fragment
         android:id="@+id/secondFragment"
         android:name="com.example.urrencyconverter.screens.second.SecondFragment"
@@ -21,10 +12,26 @@
         <action
             android:id="@+id/action_secondFragment_to_thirdFragment"
             app:destination="@id/thirdFragment" />
+        <action
+            android:id="@+id/action_secondFragment_to_startFragment"
+            app:destination="@id/startFragment" />
     </fragment>
     <fragment
         android:id="@+id/thirdFragment"
         android:name="com.example.urrencyconverter.screens.third.ThirdFragment"
         android:label="fragment_third"
-        tools:layout="@layout/fragment_third" />
+        tools:layout="@layout/fragment_third" >
+        <action
+            android:id="@+id/action_thirdFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.urrencyconverter.screens.start.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+    </fragment>
 </navigation>

@@ -12,17 +12,19 @@ import kotlinx.android.synthetic.main.fragment_item_currency.view.*
 import kotlinx.android.synthetic.main.item_money_layout.view.*
 
 
-class ThirdFragmentAdapter( val listener: ListnearCurrency)  : RecyclerView.Adapter<ThirdFragmentAdapter.TherdFrgViewHolder>() {
+class ThirdFragmentAdapter(val listener: ListnearCurrency) :
+    RecyclerView.Adapter<ThirdFragmentAdapter.TherdFrgViewHolder>() {
 
     var listStart = emptyList<AllJsonData>()
     var tempList = ArrayList<ValutaItem>()
 
-    class TherdFrgViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    class TherdFrgViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TherdFrgViewHolder {
-        val view =   LayoutInflater.from(parent.context).inflate(R.layout.fragment_item_currency, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.fragment_item_currency, parent, false)
         return TherdFrgViewHolder(view)
     }
 
@@ -32,15 +34,16 @@ class ThirdFragmentAdapter( val listener: ListnearCurrency)  : RecyclerView.Adap
 
     override fun onBindViewHolder(holder: TherdFrgViewHolder, position: Int) {
 
-        holder.itemView.itemValutName.text = tempList[position].Name
-        holder.itemView.itemValutCurrency.text = tempList[position].Previews
-        holder.itemView.rowLin.setOnClickListener {
-            listener.onClick(tempList[position].Name,tempList[position].Value)
-                }
+        holder.itemView.itemValutName.text = tempList[position].name
+        holder.itemView.itemValutCurrency.text = tempList[position].previews
 
+        holder.itemView.rowLin.setOnClickListener {
+            listener.onClick(tempList[position].previews, tempList[position].Value)
+        }
 
 
     }
+
     @SuppressLint("NotifyDataSetChanged")
     fun setList(list: AllJsonData) {
         listStart = listOf(list)

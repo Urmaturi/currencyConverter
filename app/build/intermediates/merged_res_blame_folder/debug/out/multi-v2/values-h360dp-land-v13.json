@@ -4,7 +4,7 @@
             "outputFile": "com.example.urrencyconverter.app-mergeDebugResources-43:/values-h360dp-land-v13/values-h360dp-land-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-3\\613effe678a3a4c581e033fe582926a8\\transformed\\material-1.8.0\\res\\values-h360dp-land-v13\\values-h360dp-land-v13.xml",
+                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-3\\613effe678a3a4c581e033fe582926a8\\transformed\\material-1.8.0\\res\\values-h360dp-land-v13\\values-h360dp-land-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",

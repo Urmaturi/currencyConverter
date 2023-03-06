@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.urrencyconverter.R
 import com.example.urrencyconverter.databinding.FragmentThirdBinding
@@ -49,12 +50,16 @@ class ThirdFragment : Fragment(), ListnearCurrency {
         toast.show()
        // Navigation.findNavController(view)
             //.navigate(R.id.action_rootFragment_to_thirdFragment)
-        val bundle = Bundle()
-        val bundle2 = Bundle()
-        bundle.putString("name", name)
-        bundle2.putString("currency",currency)
-        MAIN.navController.navigate(R.id.action_thirdFragment_to_secondFragment)
 
+        val bundle = Bundle()
+
+        bundle.putString("currency",currency)
+        bundle.putString("name", name)
+
+        //MAIN.navController.navigate(R.id.action_thirdFragment_to_secondFragment,bundle2)
+        findNavController().navigate(R.id.action_thirdFragment_to_secondFragment,bundle)
+
+        //findNavController().navigate(R.id.action_rootFragment_to_secondFragment,bundle2)
     }
 
 

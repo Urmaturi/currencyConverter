@@ -24,6 +24,7 @@ class SecondFragment : Fragment(),ListnearCurrency {
     private lateinit var viewModels: ViewModel
     lateinit var dialog: Dialog
     lateinit var binding: FragmentSecondBinding
+    var flag: Boolean = true
 
 
 
@@ -31,29 +32,37 @@ class SecondFragment : Fragment(),ListnearCurrency {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        binding = FragmentSecondBinding.inflate(layoutInflater,container,false)
 
-       binding = FragmentSecondBinding.inflate(layoutInflater,container,false)
-
-        //val view = inflater.inflate(R.layout.fragment_second, container, false)
         dialog = Dialog(requireContext())
-
-        val text = arguments?.getString("currency")
-        binding.root.txtNameValut.text = text
-
         return binding.root
+    }
+
+    override fun onResume() {
+
+        super.onResume()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // flag = true
+        fillValuts()
+
+        binding.btnName.setOnClickListener {
+            Navigation.findNavController(binding.root)
+                .navigate(R.id.action_secondFragment_to_startFragment)
+        }
+
+
         binding.root.nextChange.setOnClickListener {
-          //  MAIN.navController.navigate(R.id.action_secondFragment_to_thirdFragment)
+            flag = false
             Navigation.findNavController(view)
-                .navigate(R.id.action_rootFragment_to_thirdFragment)
+                .navigate(R.id.action_secondFragment_to_thirdFragment)
 
         }
         binding.root.nextChange2.setOnClickListener {
-            MAIN.navController.navigate(R.id.action_rootFragment_to_thirdFragment)
+            flag = false
+            MAIN.navController.navigate(R.id.action_secondFragment_to_thirdFragment)
         }
         binding.root.txtNumCursValut1.setOnClickListener {
             dialogCurrentChange()
@@ -63,8 +72,8 @@ class SecondFragment : Fragment(),ListnearCurrency {
         }
 
 
-        val text = arguments?.getString("name")
-        binding.root.txtNameValut.text = text
+
+
 
 
     }
@@ -109,9 +118,23 @@ class SecondFragment : Fragment(),ListnearCurrency {
         dialog.show()
     }
     fun dilig(view: View) {}
+
+
     override fun onClick(name: String, currency: String) {
         TODO("Not yet implemented")
     }
+
+    fun fillValuts(){
+        if(flag == false) {
+            val text = arguments?.getString("currency")
+            binding.root.txtNumCursValut1.text = text
+            val text2 = arguments?.getString("name")
+            binding.root.txtNameValut.text = text2
+        }
+    }
+
+
+
 
 
 }
