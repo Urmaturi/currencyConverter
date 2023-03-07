@@ -25,14 +25,16 @@ class SecondFragment : Fragment(),ListnearCurrency {
     lateinit var dialog: Dialog
     lateinit var binding: FragmentSecondBinding
     var flag: Boolean = true
-
-
+     lateinit var bundle: Bundle
+    var flag2: Boolean = true
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentSecondBinding.inflate(layoutInflater,container,false)
+        bundle = Bundle()
+
 
         dialog = Dialog(requireContext())
         return binding.root
@@ -45,23 +47,33 @@ class SecondFragment : Fragment(),ListnearCurrency {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // flag = true
-        fillValuts()
+
+       //
+        bundle.getBoolean("flag2")
+        if(flag2 == false)
+            fillValuts()
 
         binding.btnName.setOnClickListener {
+
             Navigation.findNavController(binding.root)
                 .navigate(R.id.action_secondFragment_to_startFragment)
+
         }
 
 
         binding.root.nextChange.setOnClickListener {
-            flag = false
+             flag = true
+            //onSaveInstanceState(Bundle())
+
+            flag2 = false
+            bundle.putBoolean("flag2",flag2)
             Navigation.findNavController(view)
                 .navigate(R.id.action_secondFragment_to_thirdFragment)
 
         }
         binding.root.nextChange2.setOnClickListener {
             flag = false
+            //onSaveInstanceState(Bundle())
             MAIN.navController.navigate(R.id.action_secondFragment_to_thirdFragment)
         }
         binding.root.txtNumCursValut1.setOnClickListener {
@@ -77,6 +89,26 @@ class SecondFragment : Fragment(),ListnearCurrency {
 
 
     }
+
+//    override fun onSaveInstanceState(outState: Bundle) {
+//        outState?.run {
+//            putBoolean("flag",flag)
+//                    }
+//
+//        super.onSaveInstanceState(outState)
+//    }
+
+//    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+//        super.onViewStateRestored(savedInstanceState)
+//
+//        //val text = savedInstanceState?.getBoolean("flag")
+//        val text = bundle.getBoolean("flag")
+//        val duration = Toast.LENGTH_SHORT
+//
+//        val toast = Toast.makeText(context, text.toString(), duration)
+//        toast.show()
+//    }
+
 
 
     private fun dialogCurrentChange2() {
@@ -124,13 +156,61 @@ class SecondFragment : Fragment(),ListnearCurrency {
         TODO("Not yet implemented")
     }
 
+
+    fun fillFirstValute()
+    {
+        val text = arguments?.getString("currency")
+        binding.root.txtNumCursValut1.text = text
+        val text2 = arguments?.getString("name")
+        binding.root.txtNameValut.text = text2
+        bundle.putBoolean("")
+
+
+    }
+    fun fillSecondValute()
+    {
+        val text = arguments?.getString("currency")
+        binding.root.txtNumCur2.text = text
+        val text2 = arguments?.getString("name")
+        binding.root.txtNameCur2.text = text2
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     fun fillValuts(){
         if(flag == false) {
             val text = arguments?.getString("currency")
             binding.root.txtNumCursValut1.text = text
             val text2 = arguments?.getString("name")
             binding.root.txtNameValut.text = text2
+            flag = true
+            bundle.putBoolean("flag",flag)
         }
+        else
+        {
+            val text = arguments?.getString("currency")
+            binding.root.txtNumCur2.text = text
+            val text2 = arguments?.getString("name")
+            binding.root.txtNameCur2.text = text2
+            flag=false
+            bundle.putBoolean("flag",flag)
+                   }
+
+
+
+
     }
 
 
