@@ -61,7 +61,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtNumCursValut1"
+                    android:id="@+id/txtCurrentA"
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/txtNameValut"
+                    android:id="@+id/txtNameA"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
                     android:gravity="center"
@@ -109,7 +109,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtNumCur2"
+                    android:id="@+id/txtCurrentB"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -118,7 +118,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/txtNameCur2"
+                    android:id="@+id/txtNameB"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
                     android:gravity="center"

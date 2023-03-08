@@ -19,47 +19,71 @@ class ThirdFragment : Fragment(), ListnearCurrency {
 
     lateinit var recyclerView: RecyclerView
     lateinit var adapter: ThirdFragmentAdapter
-
-        override fun onCreateView(
+    val bundle = Bundle()
+    override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-            val v = inflater.inflate(R.layout.fragment_start, container, false)
-            binding = FragmentThirdBinding.inflate( layoutInflater, container, false)
-            val viewModel = ViewModelProvider(this)[ThirdViewModel::class.java]
-            recyclerView = binding.rvSimple
-            adapter = ThirdFragmentAdapter(this)
-            recyclerView.adapter = adapter
-            viewModel.getMoney()
-            val bundle = Bundle()
+        val v = inflater.inflate(R.layout.fragment_start, container, false)
+        binding = FragmentThirdBinding.inflate(layoutInflater, container, false)
+        val viewModel = ViewModelProvider(this)[ThirdViewModel::class.java]
+        recyclerView = binding.rvSimple
+        adapter = ThirdFragmentAdapter(this)
+        recyclerView.adapter = adapter
+        viewModel.getMoney()
 
 
 
-            viewModel.valytList.observe(viewLifecycleOwner, { list ->
-                list.body()?.let { adapter.setList(it) }
-            })
+
+        viewModel.valytList.observe(viewLifecycleOwner, { list ->
+            list.body()?.let { adapter.setList(it) }
+        })
 
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+
+
+        super.onViewCreated(view, savedInstanceState)
+    }
+
     override fun onClick(name: String, currency: String) {
-        val text =  name + currency
+        val text = name + currency
         val duration = Toast.LENGTH_SHORT
 
-        val toast = Toast.makeText( layoutInflater.context, text, duration)
+        val toast = Toast.makeText(layoutInflater.context, text, duration)
         toast.show()
-       // Navigation.findNavController(view)
-            //.navigate(R.id.action_rootFragment_to_thirdFragment)
 
-        val bundle = Bundle()
 
-        bundle.putString("currency",currency)
+        val curranceA = arguments?.getString("CurranceA")
+        val nameA = arguments?.getString("NameA")
+        val curranceB = arguments?.getString("CurranceB")
+        val nameB = arguments?.getString("NameB")
+        val flag = arguments?.getBoolean("flag") == false
+        val flagVyborValyt = arguments?.getBoolean("flag2")== true
+
+
+
+        bundle.putString("currency", currency)
         bundle.putString("name", name)
 
-        //MAIN.navController.navigate(R.id.action_thirdFragment_to_secondFragment,bundle2)
-        findNavController().navigate(R.id.action_thirdFragment_to_secondFragment,bundle)
+        bundle.putBoolean("flag",flag)
+        bundle.putBoolean("flag2",flagVyborValyt)
 
-        //findNavController().navigate(R.id.action_rootFragment_to_secondFragment,bundle2)
+        if (flagVyborValyt == true) {
+            bundle.putString("currencyOld", curranceA)
+            bundle.putString("nameOld", nameA)
+        } else {
+            bundle.putString("currencyOld", curranceB)
+            bundle.putString("nameOld", nameB)
+        }
+
+
+        findNavController().navigate(R.id.action_thirdFragment_to_secondFragment, bundle)
+
+
     }
 
 

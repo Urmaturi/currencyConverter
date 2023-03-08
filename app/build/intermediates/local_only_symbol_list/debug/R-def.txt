@@ -43,10 +43,10 @@ id startFragment
 id tab_layout
 id thirdFragment
 id toolbar
-id txtNameCur2
-id txtNameValut
-id txtNumCur2
-id txtNumCursValut1
+id txtCurrentA
+id txtCurrentB
+id txtNameA
+id txtNameB
 id txt_title
 id viewPager
 layout activity_main

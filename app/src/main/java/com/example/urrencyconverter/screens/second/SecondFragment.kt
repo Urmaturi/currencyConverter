@@ -9,49 +9,42 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
 import androidx.navigation.Navigation
 import com.example.urrencyconverter.R
 import com.example.urrencyconverter.databinding.FragmentSecondBinding
 import com.example.urrencyconverter.screens.MAIN
-import com.example.urrencyconverter.screens.third.ListnearCurrency
 import kotlinx.android.synthetic.main.fragment_second.view.*
 
 
-class SecondFragment : Fragment(),ListnearCurrency {
+class SecondFragment : Fragment() {
 
 
-    private lateinit var viewModels: ViewModel
     lateinit var dialog: Dialog
     lateinit var binding: FragmentSecondBinding
-    var flag: Boolean = true
-     lateinit var bundle: Bundle
-    var flag2: Boolean = true
+
+    lateinit var bundle: Bundle
+    var flag: Boolean = false
+    var flagVyborValyt: Boolean = false
+    var valuta: String = ""
+    var count: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentSecondBinding.inflate(layoutInflater,container,false)
+        binding = FragmentSecondBinding.inflate(layoutInflater, container, false)
         bundle = Bundle()
-
 
         dialog = Dialog(requireContext())
         return binding.root
     }
 
-    override fun onResume() {
 
-        super.onResume()
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-       //
-        bundle.getBoolean("flag2")
-        if(flag2 == false)
-            fillValuts()
+        getBundle()
 
         binding.btnName.setOnClickListener {
 
@@ -60,59 +53,28 @@ class SecondFragment : Fragment(),ListnearCurrency {
 
         }
 
-
         binding.root.nextChange.setOnClickListener {
-             flag = true
-            //onSaveInstanceState(Bundle())
-
-            flag2 = false
-            bundle.putBoolean("flag2",flag2)
+            flag = true
+            flagVyborValyt = false
+            putBundle()
             Navigation.findNavController(view)
-                .navigate(R.id.action_secondFragment_to_thirdFragment)
-
+                .navigate(R.id.action_secondFragment_to_thirdFragment, bundle)
         }
         binding.root.nextChange2.setOnClickListener {
-            flag = false
-            //onSaveInstanceState(Bundle())
-            MAIN.navController.navigate(R.id.action_secondFragment_to_thirdFragment)
+            flagVyborValyt = true
+            flag = true
+            putBundle()
+            MAIN.navController.navigate(R.id.action_secondFragment_to_thirdFragment, bundle)
         }
-        binding.root.txtNumCursValut1.setOnClickListener {
+        binding.root.txtCurrentA.setOnClickListener {
             dialogCurrentChange()
         }
-        binding.root.txtNumCur2.setOnClickListener {
+        binding.root.txtCurrentB.setOnClickListener {
             dialogCurrentChange2()
         }
-
-
-
-
-
-
     }
 
-//    override fun onSaveInstanceState(outState: Bundle) {
-//        outState?.run {
-//            putBoolean("flag",flag)
-//                    }
-//
-//        super.onSaveInstanceState(outState)
-//    }
-
-//    override fun onViewStateRestored(savedInstanceState: Bundle?) {
-//        super.onViewStateRestored(savedInstanceState)
-//
-//        //val text = savedInstanceState?.getBoolean("flag")
-//        val text = bundle.getBoolean("flag")
-//        val duration = Toast.LENGTH_SHORT
-//
-//        val toast = Toast.makeText(context, text.toString(), duration)
-//        toast.show()
-//    }
-
-
-
     private fun dialogCurrentChange2() {
-
         dialog.setCancelable(false)
         dialog.setCanceledOnTouchOutside(false)
         dialog.setContentView(R.layout.fragment_chanege_cash)
@@ -121,8 +83,8 @@ class SecondFragment : Fragment(),ListnearCurrency {
         val exit = dialog.findViewById<ImageView>(R.id.imgCancel)
         val textCurrency = dialog.findViewById<EditText>(R.id.edt_currency)
         buttonYES.setOnClickListener {
-            view?.txtNumCur2?.text = textCurrency.text
-           // converterInfo2(textCurrency.text.toString())
+            view?.txtCurrentB?.text = textCurrency.text
+            // converterInfo2(textCurrency.text.toString())
             dialog.dismiss()
         }
         exit.setOnClickListener {
@@ -130,6 +92,7 @@ class SecondFragment : Fragment(),ListnearCurrency {
         }
         dialog.show()
     }
+
     fun dialogCurrentChange() {
 
         dialog.setCancelable(false)
@@ -140,7 +103,7 @@ class SecondFragment : Fragment(),ListnearCurrency {
         val exit = dialog.findViewById<ImageView>(R.id.imgCancel)
         val textCurrency = dialog.findViewById<EditText>(R.id.edt_currency)
         buttonYES.setOnClickListener {
-            view?.txtNumCursValut1?.text = textCurrency.text
+            view?.txtCurrentA?.text = textCurrency.text
             //  converterInfo(textCurrency.text.toString())
             dialog.dismiss()
         }
@@ -149,72 +112,54 @@ class SecondFragment : Fragment(),ListnearCurrency {
         }
         dialog.show()
     }
-    fun dilig(view: View) {}
-
-
-    override fun onClick(name: String, currency: String) {
-        TODO("Not yet implemented")
-    }
-
-
-    fun fillFirstValute()
-    {
-        val text = arguments?.getString("currency")
-        binding.root.txtNumCursValut1.text = text
-        val text2 = arguments?.getString("name")
-        binding.root.txtNameValut.text = text2
-        bundle.putBoolean("")
-
-
-    }
-    fun fillSecondValute()
-    {
-        val text = arguments?.getString("currency")
-        binding.root.txtNumCur2.text = text
-        val text2 = arguments?.getString("name")
-        binding.root.txtNameCur2.text = text2
-
-
-    }
 
 
 
 
 
+    fun putBundle() {
+        bundle.putBoolean("flag", flag)
+        bundle.putBoolean("flag2", flagVyborValyt)
+        if (flagVyborValyt == false) {
 
+            bundle.putString("CurranceB", binding.txtCurrentB.text.toString())
+            bundle.putString("NameB", binding.txtNameB.text.toString())
 
-
-
-
-
-
-
-    fun fillValuts(){
-        if(flag == false) {
-            val text = arguments?.getString("currency")
-            binding.root.txtNumCursValut1.text = text
-            val text2 = arguments?.getString("name")
-            binding.root.txtNameValut.text = text2
-            flag = true
-            bundle.putBoolean("flag",flag)
+        } else {
+            bundle.putString("CurranceA", binding.txtCurrentA.text.toString())
+            bundle.putString("NameA", binding.txtNameA.text.toString())
         }
-        else
-        {
-            val text = arguments?.getString("currency")
-            binding.root.txtNumCur2.text = text
-            val text2 = arguments?.getString("name")
-            binding.root.txtNameCur2.text = text2
-            flag=false
-            bundle.putBoolean("flag",flag)
-                   }
-
-
-
 
     }
 
+    fun getBundle() {
+        flag = arguments?.getBoolean("flag") == false
+        flagVyborValyt = arguments?.getBoolean("flag2") == false
+        if (flag) {
+            if (flagVyborValyt == false) {
+                val valuta = arguments?.getString("currency")
+                binding.root.txtCurrentB.text = valuta
+                val nazvanie = arguments?.getString("name")
+                binding.root.txtNameB.text = nazvanie
 
+                val valutaOld = arguments?.getString("currencyOld")
+                val nameOld = arguments?.getString("nameOld")
+                binding.root.txtCurrentA.text = valutaOld
+                binding.root.txtNameA.text = nameOld
 
+            } else {
+                val text = arguments?.getString("currency")
+                binding.root.txtCurrentA.text = text
+                val text2 = arguments?.getString("name")
+                binding.root.txtNameA.text = text2
 
+                val valutaOld = arguments?.getString("currencyOld")
+                val nameOld = arguments?.getString("nameOld")
+                binding.root.txtCurrentB.text = valutaOld
+                binding.root.txtNameB.text = nameOld
+
+            }
+        }
+    }
 
 }
