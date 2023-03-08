@@ -11,8 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.urrencyconverter.R
 import com.example.urrencyconverter.databinding.FragmentThirdBinding
-import com.example.urrencyconverter.model.nal.ValutaItem
-import com.example.urrencyconverter.screens.MAIN
+
 
 class ThirdFragment : Fragment(), ListnearCurrency {
     lateinit var binding: FragmentThirdBinding
@@ -49,7 +48,7 @@ class ThirdFragment : Fragment(), ListnearCurrency {
         super.onViewCreated(view, savedInstanceState)
     }
 
-    override fun onClick(name: String, currency: String) {
+    override fun onClick(name: String, currency: String, nominal : Int) {
         val text = name + currency
         val duration = Toast.LENGTH_SHORT
 
@@ -59,8 +58,12 @@ class ThirdFragment : Fragment(), ListnearCurrency {
 
         val curranceA = arguments?.getString("CurranceA")
         val nameA = arguments?.getString("NameA")
+        val nominalA = arguments?.getString("nominalA")
+
         val curranceB = arguments?.getString("CurranceB")
         val nameB = arguments?.getString("NameB")
+        val nominalB = arguments?.getString("nominalB")
+
         val flag = arguments?.getBoolean("flag") == false
         val flagVyborValyt = arguments?.getBoolean("flag2")== true
 
@@ -68,6 +71,7 @@ class ThirdFragment : Fragment(), ListnearCurrency {
 
         bundle.putString("currency", currency)
         bundle.putString("name", name)
+        bundle.putInt("nominal",nominal)
 
         bundle.putBoolean("flag",flag)
         bundle.putBoolean("flag2",flagVyborValyt)
@@ -75,9 +79,11 @@ class ThirdFragment : Fragment(), ListnearCurrency {
         if (flagVyborValyt == true) {
             bundle.putString("currencyOld", curranceA)
             bundle.putString("nameOld", nameA)
+            bundle.putString("nominalOld",nominalA)
         } else {
             bundle.putString("currencyOld", curranceB)
             bundle.putString("nameOld", nameB)
+            bundle.putString("nominalOld",nominalB)
         }
 
 

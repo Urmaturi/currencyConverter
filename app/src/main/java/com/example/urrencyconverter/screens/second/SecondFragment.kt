@@ -25,8 +25,13 @@ class SecondFragment : Fragment() {
     lateinit var bundle: Bundle
     var flag: Boolean = false
     var flagVyborValyt: Boolean = false
-    var valuta: String = ""
-    var count: String = ""
+
+    var nominalA: Int = 1
+    var nominalB: Int = 1
+    var valutaA: Double = 1.0
+    var valutaB: Double = 1.0
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,7 +43,6 @@ class SecondFragment : Fragment() {
         dialog = Dialog(requireContext())
         return binding.root
     }
-
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -91,6 +95,7 @@ class SecondFragment : Fragment() {
             dialog.dismiss()
         }
         dialog.show()
+        calculation()
     }
 
     fun dialogCurrentChange() {
@@ -111,10 +116,8 @@ class SecondFragment : Fragment() {
             dialog.dismiss()
         }
         dialog.show()
+        calculation()
     }
-
-
-
 
 
     fun putBundle() {
@@ -124,10 +127,12 @@ class SecondFragment : Fragment() {
 
             bundle.putString("CurranceB", binding.txtCurrentB.text.toString())
             bundle.putString("NameB", binding.txtNameB.text.toString())
+            bundle.putInt("nominalB", nominalB)
 
         } else {
             bundle.putString("CurranceA", binding.txtCurrentA.text.toString())
             bundle.putString("NameA", binding.txtNameA.text.toString())
+            bundle.putInt("nominalA", nominalA)
         }
 
     }
@@ -138,28 +143,61 @@ class SecondFragment : Fragment() {
         if (flag) {
             if (flagVyborValyt == false) {
                 val valuta = arguments?.getString("currency")
+
+                valutaB = valuta?.toDouble()!!
+
                 binding.root.txtCurrentB.text = valuta
                 val nazvanie = arguments?.getString("name")
                 binding.root.txtNameB.text = nazvanie
-
                 val valutaOld = arguments?.getString("currencyOld")
+                valutaA = valutaOld?.toDouble()!!
+
                 val nameOld = arguments?.getString("nameOld")
                 binding.root.txtCurrentA.text = valutaOld
                 binding.root.txtNameA.text = nameOld
+                nominalB = arguments?.getInt("nominal")!!
+                nominalA = arguments?.getInt("nominalOld")!!
 
             } else {
-                val text = arguments?.getString("currency")
-                binding.root.txtCurrentA.text = text
-                val text2 = arguments?.getString("name")
-                binding.root.txtNameA.text = text2
+                val valuta = arguments?.getString("currency")
+                valutaA = valuta?.toDouble()!!
+
+                binding.root.txtCurrentA.text = valuta
+                val nazvanie = arguments?.getString("name")
+                binding.root.txtNameA.text = nazvanie
 
                 val valutaOld = arguments?.getString("currencyOld")
+                valutaB = valutaOld?.toDouble()!!
+
                 val nameOld = arguments?.getString("nameOld")
                 binding.root.txtCurrentB.text = valutaOld
                 binding.root.txtNameB.text = nameOld
 
+                nominalA = arguments?.getInt("nominal")!!
+                nominalB = arguments?.getInt("nominalOld")!!
+
             }
         }
     }
+
+    fun calculation() {
+        try {
+              var temp: Double
+             temp = valutaA / nominalB / valutaB
+
+            val duration = Toast.LENGTH_LONG
+
+            val toast = Toast.makeText(layoutInflater.context, temp.toString(), duration)
+            toast.show()
+
+
+        } catch (e: Exception) {
+
+        } finally {
+
+        }
+
+    }
+
 
 }

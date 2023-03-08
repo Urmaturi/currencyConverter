@@ -4,4 +4,5 @@ data class ValutaItem(
     var name: String,
     var previews: String,
     var Value: String,
+    var Nominal: Int
 )
