@@ -3332,6 +3332,7 @@ int id textSpacerNoButtons 0x7f0801d9
 int id textSpacerNoTitle 0x7f0801da
 int id textStart 0x7f0801db
 int id textTop 0x7f0801dc
+int id textViewTemp 0x7f080215
 int id text_input_end_icon 0x7f0801dd
 int id text_input_error_icon 0x7f0801de
 int id text_input_start_icon 0x7f0801df
@@ -3359,10 +3360,10 @@ int id transition_position 0x7f0801f4
 int id transition_scene_layoutid_cache 0x7f0801f5
 int id transition_transform 0x7f0801f6
 int id triangle 0x7f0801f7
-int id txtCurrentA 0x7f080215
-int id txtCurrentB 0x7f080216
-int id txtNameA 0x7f080217
-int id txtNameB 0x7f080218
+int id txtCurrentA 0x7f0801f8
+int id txtCurrentB 0x7f0801f9
+int id txtNameA 0x7f0801fa
+int id txtNameB 0x7f0801fb
 int id txt_title 0x7f0801fc
 int id unchecked 0x7f0801fd
 int id uniform 0x7f0801fe

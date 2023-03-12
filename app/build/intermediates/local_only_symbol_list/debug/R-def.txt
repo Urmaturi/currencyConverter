@@ -41,6 +41,7 @@ id rv_start
 id secondFragment
 id startFragment
 id tab_layout
+id textViewTemp
 id thirdFragment
 id toolbar
 id txtCurrentA

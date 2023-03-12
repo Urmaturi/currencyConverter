@@ -49,20 +49,20 @@ class ThirdFragment : Fragment(), ListnearCurrency {
     }
 
     override fun onClick(name: String, currency: String, nominal : Int) {
-        val text = name + currency
-        val duration = Toast.LENGTH_SHORT
-
-        val toast = Toast.makeText(layoutInflater.context, text, duration)
-        toast.show()
+//        val text = name + currency
+//        val duration = Toast.LENGTH_SHORT
+//
+//        val toast = Toast.makeText(layoutInflater.context, text, duration)
+//        toast.show()
 
 
         val curranceA = arguments?.getString("CurranceA")
         val nameA = arguments?.getString("NameA")
-        val nominalA = arguments?.getString("nominalA")
+        val nominalA = arguments?.getInt("nominalA")
 
         val curranceB = arguments?.getString("CurranceB")
         val nameB = arguments?.getString("NameB")
-        val nominalB = arguments?.getString("nominalB")
+        val nominalB = arguments?.getInt("nominalB")
 
         val flag = arguments?.getBoolean("flag") == false
         val flagVyborValyt = arguments?.getBoolean("flag2")== true
@@ -79,11 +79,11 @@ class ThirdFragment : Fragment(), ListnearCurrency {
         if (flagVyborValyt == true) {
             bundle.putString("currencyOld", curranceA)
             bundle.putString("nameOld", nameA)
-            bundle.putString("nominalOld",nominalA)
+            bundle.putInt("nominalOld",nominalA!!)
         } else {
             bundle.putString("currencyOld", curranceB)
             bundle.putString("nameOld", nameB)
-            bundle.putString("nominalOld",nominalB)
+            bundle.putInt("nominalOld",nominalB!!)
         }
 
 
