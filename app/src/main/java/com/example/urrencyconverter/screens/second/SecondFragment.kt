@@ -16,6 +16,7 @@ import com.example.urrencyconverter.screens.MAIN
 import kotlinx.android.synthetic.main.fragment_item_currency.view.*
 import kotlinx.android.synthetic.main.fragment_second.*
 import kotlinx.android.synthetic.main.fragment_second.view.*
+import java.lang.Math.floor
 
 
 class SecondFragment : Fragment() {
@@ -87,7 +88,7 @@ class SecondFragment : Fragment() {
         val textCurrency = dialog.findViewById<EditText>(R.id.edt_currency)
         buttonYES.setOnClickListener {
             view?.txtCurrentB?.text = textCurrency.text
-            // converterInfo2(textCurrency.text.toString())
+
             calculation2()
             dialog.dismiss()
         }
@@ -109,7 +110,7 @@ class SecondFragment : Fragment() {
         val textCurrency = dialog.findViewById<EditText>(R.id.edt_currency)
         buttonYES.setOnClickListener {
             view?.txtCurrentA?.text = textCurrency.text
-            //  converterInfo(textCurrency.text.toString())
+
             calculation1()
             dialog.dismiss()
         }
@@ -185,66 +186,28 @@ class SecondFragment : Fragment() {
         try {
             var temp: Double
             var otvet: Double
-//            if (nominalA != nominalB)
-//                if ( nominalA >  nominalB) {
-//                    //temp = valutaA / nominalA / valutaB
-//                    //textViewTemp.text = "$valutaA / $nominalA / $valutaB = $temp  first"
-//                    // textViewTemp.text = (temp * valutaB).toString()
-//                    temp = txtCurrentA.text.toString().toDouble()
-//                    otvet = temp * valutaB
-//                    txtCurrentB.text = otvet.toString()
-//                } else {
-//                    temp = valutaA / nominalA / valutaB
-//                    textViewTemp.text = "$valutaA / $nominalA / $valutaB = $temp  second"
-//                    temp = txtCurrentA.text.toString().toDouble()
-//                    otvet = (valutaA / nominalA / valutaB) * temp
-//                    txtCurrentB.text = otvet.toString()
-//                }
-//            else {
-//                if ( nominalA > nominalB) {
-//                    //temp = valutaA / nominalA / valutaB
-//                    //textViewTemp.text = "$valutaA / $nominalA / $valutaB = $temp  first"
-//                    // textViewTemp.text = (temp * valutaB).toString()
-//                    temp = txtCurrentA.text.toString().toDouble()
-//                    otvet = valutaA / valutaB * temp
-//                    txtCurrentB.text = otvet.toString()
-//                } else {
-//                    temp = valutaA / nominalA / valutaB
-//                    textViewTemp.text = "$valutaA / $nominalA / $valutaB = $temp  second"
-//                    temp = txtCurrentA.text.toString().toDouble()
-//                    otvet = (valutaA / nominalA / valutaB) * temp
-//                    txtCurrentB.text = otvet.toString()
-//                }
-//            }
-
             when
             {
                 nominalA == nominalB -> {
-
+                    temp = txtCurrentA.text.toString().toDouble()
+                    otvet =  valutaA*temp/valutaB
+                    otvet = floor(otvet*100.0)/100
+                    txtCurrentB.text = otvet.toString()
                 }
                 nominalA>nominalB -> {
-                    temp = valutaA / nominalA / valutaB
-                    textViewTemp.text = "$valutaA / $nominalA / $valutaB = $temp  second"
                     temp = txtCurrentA.text.toString().toDouble()
                     otvet = (valutaA / nominalA / valutaB) * temp
+                    otvet = floor(otvet*1000.0)/1000
                     txtCurrentB.text = otvet.toString()
                 }
                 nominalA<nominalB -> {
                     temp = txtCurrentA.text.toString().toDouble()
-//                    //textViewTemp.text = "$valutaA / $nominalA / $valutaB = $temp  first"
-//                    // textViewTemp.text = (temp * valutaB).toString()
-//                    temp = txtCurrentA.text.toString().toDouble()
-                    otvet = temp * valutaB
+                    otvet = temp * valutaA
+                    otvet = floor(otvet*100.0)/100
                     txtCurrentB.text = otvet.toString()
                                     }
-
                 else -> { }
             }
-
-
-
-
-
         } catch (e: Exception) {
 
         } finally {
@@ -256,23 +219,30 @@ class SecondFragment : Fragment() {
     fun calculation2() {
         try {
             var temp: Double
-            val otvet: Double
+            var otvet: Double
+            when
+            {
+                nominalA == nominalB -> {
+                    temp = txtCurrentB.text.toString().toDouble()
+                    otvet =  valutaB*temp/valutaA
+                    otvet = floor(otvet*100.0)/100
+                    txtCurrentA.text = otvet.toString()
+                }
+                nominalA<nominalB -> {
+                    temp = txtCurrentB.text.toString().toDouble()
+                    otvet = (valutaB / nominalB / valutaA) * temp
+                    otvet = floor(otvet*1000.0)/1000
+                    txtCurrentA.text = otvet.toString()
+                }
+                nominalA>nominalB -> {
+                    temp = txtCurrentB.text.toString().toDouble()
+                    otvet = temp * valutaB
+                    otvet = floor(otvet*100.0)/100
+                    txtCurrentA.text = otvet.toString()
+                }
 
-            if (valutaA / nominalA > valutaB / nominalB) {
-                //temp = valutaA / nominalA / valutaB
-                //textViewTemp.text = "$valutaA / $nominalA / $valutaB = $temp  first"
-                // textViewTemp.text = (temp * valutaB).toString()
-                temp = txtCurrentB.text.toString().toDouble()
-                otvet = temp * valutaB
-                txtCurrentB.text = otvet.toString()
-            } else {
-                temp = valutaA / nominalA / valutaB
-                textViewTemp.text = "$valutaA / $nominalA / $valutaB = $temp  second"
-                temp = txtCurrentA.text.toString().toDouble()
-                otvet = (valutaA / nominalA / valutaB) * temp
-                txtCurrentA.text = otvet.toString()
+                else -> { }
             }
-
         } catch (e: Exception) {
 
         } finally {

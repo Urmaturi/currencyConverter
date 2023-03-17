@@ -4,7 +4,7 @@
             "outputFile": "com.example.urrencyconverter.app-mergeDebugResources-43:/values-v22/values-v22.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-3\\65d7d5a23c62ce8b7cc09aa683beb918\\transformed\\appcompat-1.6.1\\res\\values-v22\\values-v22.xml",
+                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-3\\65d7d5a23c62ce8b7cc09aa683beb918\\transformed\\appcompat-1.6.1\\res\\values-v22\\values-v22.xml",
                     "from": {
                         "startLines": "2,3,4,9",
                         "startColumns": "4,4,4,4",
