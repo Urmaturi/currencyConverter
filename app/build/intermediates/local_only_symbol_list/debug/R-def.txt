@@ -52,6 +52,7 @@ id viewPager
 layout activity_main
 layout fragment_chanege_cash
 layout fragment_item_currency
+layout fragment_loading
 layout fragment_root
 layout fragment_second
 layout fragment_start
